@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "name": "dummyuser",
+      "password": "dummypassword",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "dummyuser",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "policies": [
+    {
+      "vhost": "/",
+      "name": "Expire Backend",
+      "apply-to": "queues",
+      "pattern": "^(events\.).*",
+      "definition": {
+        "ha-sync-mode": "automatic",
+        "ha-mode": "all",
+        "expires": 30000
+      }
+    },
+    {
+      "vhost": "/",
+      "name": "Expire Web",
+      "apply-to": "queues",
+      "pattern": "^(stomp-subscription-\.).*",
+      "definition": {
+        "ha-sync-mode": "automatic",
+        "ha-mode": "all",
+        "expires": 1800000
+      }
+    }
+  ]
+}
