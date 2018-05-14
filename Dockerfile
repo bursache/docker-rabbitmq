@@ -5,7 +5,7 @@
 # Pull base image.
 FROM ubuntu:14.04
 
-MAINTAINER Bogdan Ursache (bogdan.ursache@thinslices.com)
+MAINTAINER Bogdan Ursache (bogdang.ursache@gmail.com)
 
 # Add files.
 ADD rabbitmq_files/bin/rabbitmq-start /usr/local/bin/
